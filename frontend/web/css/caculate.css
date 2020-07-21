@@ -1,0 +1,120 @@
+input.sm {
+  height: 26px; }
+
+select.sm {
+  height: 26px; }
+
+.list-check {
+  list-style: none;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+  left: 15px;
+  width: 100%;
+  z-index: 999;
+  background: white;
+  top: 30px;
+  border: solid 1px #ccc;
+  column-count: 5;
+  padding: 15px; }
+  .list-check.hidden {
+    display: none; }
+  .list-check li {
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding: 2px 20px;
+    text-align: center;
+    border: solid 1px #ccc; }
+    .list-check li.active {
+      border-color: #00a9da;
+      color: #00a9da; }
+    .list-check li:hover {
+      border-color: #00a9da;
+      color: #00a9da; }
+
+.btn {
+  border-radius: unset;
+  background-color: transparent; }
+  .btn.select {
+    border: solid 1px #ccc;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    position: relative; }
+    .btn.select:before {
+      content: "\f0d7";
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
+      color: #000;
+      font-size: 18px;
+      padding-right: 0.5em;
+      position: absolute;
+      top: 0;
+      right: 0; }
+
+.button-group.color-group button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center; }
+  .button-group.color-group button span {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: red; }
+.button-group .btn.checkbox {
+  padding: 5px 25px;
+  position: relative;
+  border: solid 1px #ccc;
+  font-size: 12px; }
+  .button-group .btn.checkbox:hover {
+    border-color: #000; }
+  .button-group .btn.checkbox:focus {
+    outline: unset;
+    box-shadow: unset; }
+  .button-group .btn.checkbox.active {
+    border-color: #00a9da;
+    background-image: url("../images/tick.png");
+    background-repeat: no-repeat;
+    background-position: right bottom; }
+
+.form-group * {
+  font-size: 13px; }
+
+.card-header.tab {
+  padding: 0 !important; }
+  .card-header.tab .nav-tabs {
+    border-bottom: unset; }
+    .card-header.tab .nav-tabs .nav-item {
+      border-color: unset;
+      border: unset;
+      width: 50%;
+      text-align: center;
+      height: 80px;
+      font-size: 25px;
+      line-height: 50px; }
+
+.file-area {
+  padding: 20px;
+  text-align: center;
+  border: 1px #ccc dashed;
+  background: rgba(0, 0, 0, 0.01);
+  position: relative; }
+  .file-area .mark-input {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background: #F82E56;
+    color: white; }
+  .file-area input[type="file"] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; }
+
+/*# sourceMappingURL=caculate.css.map */
