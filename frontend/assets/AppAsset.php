@@ -25,9 +25,12 @@ class AppAsset extends AssetBundle
     public $js = [
         "js/modernizr-3.5.0.min.js",
         "js/owl.carousel.min.js",
+        "js/knockout.js",
         "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js",
         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js",
         "js/jquery.waypoints.min.js",
+        "js/readfile.js",
+        "js/pcb.handle.js",
         "js/main.js",
     ];
     public $depends = [

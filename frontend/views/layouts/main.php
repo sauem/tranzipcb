@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -22,6 +23,14 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <script>
+        var config = {
+            ajaxUpload : "<?= Url::toRoute(['ajax/ajax-file'])?>",
+            ajaxLoadPropites : "<?= Url::toRoute(['ajax/load-propities'])?>",
+            maxSize : 10485760,
+            type : ['application/zip','application/x-rar','application/x-zip-compressed']
+        }
+    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>

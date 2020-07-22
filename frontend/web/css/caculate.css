@@ -1,5 +1,14 @@
+.card {
+  border-radius: unset; }
+  .card .card-header {
+    border-radius: unset;
+    background: white; }
+    .card .card-header .card-title {
+      font-size: 25px; }
+
 input.sm {
-  height: 26px; }
+  height: 26px;
+  border: solid 1px #ccc; }
 
 select.sm {
   height: 26px; }

@@ -6,6 +6,7 @@ use common\helper\Helper;
 use kartik\form\ActiveForm;
 use kartik\grid\GridView;
 use kartik\grid\ActionColumn;
+use common\models\Propites;
 
 $this->title = 'Propites';
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,7 +21,23 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="tile-body">
                 <?= $form->field($model, 'name')->label('Tên thuộc tính') ?>
                 <?= $form->field($model, 'document_link')->label('Link hướng dẫn') ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'status')
+                            ->dropDownList(
+                                    Propites::STATUS
+                            )
+                            ->label('Kích hoạt') ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'type')->dropDownList(Propites::TYPES)->label('Loại tùy chọn') ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'color_group')->dropDownList(Propites::COLOR)->label('Group màu sắc') ?>
+                    </div>
+                </div>
                 <?= Helper::tinymce($form, $model, 'description') ?>
+                <?= Helper::tinymce($form, $model, 'alert_comfirm') ?>
                 <div class="text-right">
                     <?= Helper::reset() ?>
                     <?= Html::submitButton("Lưu", ['class' => ' btn btn-success']) ?>

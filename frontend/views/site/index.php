@@ -41,6 +41,16 @@
             <div class="card-header">
                 <h2 class="card-title">Thông tin đặt hàng</h2>
             </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Giá bảng mạch:</td>
+                            <td>20.000đ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

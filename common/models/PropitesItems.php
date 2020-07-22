@@ -14,12 +14,21 @@ use Yii;
  * @property float|null $value
  * @property int $created_at
  * @property int $updated_at
+ * @property int $sort
  */
 class PropitesItems extends BaseModel
 {
     /**
      * {@inheritdoc}
      */
+
+    const _IS_INPUT = 1;
+    const _ISNOT_INPUT = 0;
+    const INPUT_CUSTOM = [
+        self::_ISNOT_INPUT => 'No',
+        self::_IS_INPUT => 'Yes',
+    ];
+
     public static function tableName()
     {
         return 'propites_items';
@@ -31,10 +40,10 @@ class PropitesItems extends BaseModel
     public function rules()
     {
         return [
-            [['parent'], 'integer'],
+            [['parent', 'sort'], 'integer'],
             [['name'], 'required'],
             [['percent'], 'number'],
-            [['name','value'], 'string', 'max' => 255],
+            [['name', 'value'], 'string', 'max' => 255],
         ];
     }
 

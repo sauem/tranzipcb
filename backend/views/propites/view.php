@@ -6,7 +6,7 @@ use common\helper\Helper;
 use yii\helpers\Url;
 use kartik\grid\GridView;
 use kartik\grid\ActionColumn;
-
+use common\models\PropitesItems;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Propites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -30,6 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-md-6">
                         <?= $form->field($model, 'value')
                             ->label('Giá trị hiển thị') ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'input_customize')
+                            ->dropDownList(PropitesItems::INPUT_CUSTOM)
+                            ->label('Ô nhập tùy chỉnh') ?>
                     </div>
                 </div>
                 <div class="text-right">

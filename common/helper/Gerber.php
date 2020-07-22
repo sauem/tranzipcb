@@ -23,7 +23,7 @@ class Gerber
     //needed on windows (if not part of path)
     //not so needed on Linux
     //public 	$gerbv_path='C:\Progra~2\gerbv-2.6.1\bin\gerbv.exe';
-    public $gerbv_path = 'gerbv';
+    public $gerbv_path = GERBV_PATH;
 
     //where to output images created with gerbv
     //relative to the script directory
@@ -55,7 +55,7 @@ class Gerber
     );
     //the stacking order of the gerber layers for image output
     //placing drills on top has a nice effect, etc...
-    public $gerber_file_order = array('drl', 'txt', 'dri', 'drd', 'gbr', 'gko', 'gml', 'gto', 'gts', 'gtl', 'gbl', 'gbs', 'gbo','g1','g2');
+    public $gerber_file_order = array('drl', 'txt', 'dri', 'drd', 'gbr', 'gko', 'gml', 'gto', 'gts', 'gtl', 'gbl', 'gbs', 'gbo', 'g1', 'g2');
 
     //hold detailed analysis of gerber files
     //populated in checkfiles(), required for createPNG()
@@ -673,14 +673,10 @@ class Gerber
                     '--export=png --dpi=400 --border=1 --log="gerbv.log" ' .
                     '--output="' . $image_dir . $image_base_name . '_' . $ext . '.png"';
                 $exe = str_replace('\\', '/', $exe);
-                $htm .= $exe ."\n";
+                $htm .= $exe . "\n";
                 shell_exec($exe);
-                // echo $exe;
-                // die;
             }
-
         }
-       // echo $htm;die;
 
         //pcb material colors
         $colors['black'] = array("red" => 0, "green" => 0, "blue" => 0, "alpha" => 255);
@@ -946,9 +942,9 @@ class Gerber
     function imagereport($img_name)
     {
         return [
-          'all'  =>       $this->image_path . "/" . $img_name . "_all.png",
-          'top' =>    $this->image_path . "/" . $img_name . "_top.png",
-          'bottom' =>    $this->image_path . "/" . $img_name . "_bottom.png",
+            'all' => "/" . $this->image_path . "/" . $img_name . "_all.png",
+            'top' => "/" . $this->image_path . "/" . $img_name . "_top.png",
+            'bottom' => "/" . $this->image_path . "/" . $img_name . "_bottom.png",
         ];
     }
 

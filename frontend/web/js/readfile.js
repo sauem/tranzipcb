@@ -3,7 +3,6 @@ function onUpload(element) {
     let _this = $(element);
     let file  = _this[0].files[0];
     if(!config.type.includes(file.type)){
-        console.log(file.type)
         alert("Định dạng file không đúng!");
         return;
     }

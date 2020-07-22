@@ -1,6 +1,7 @@
 <?php
 
 namespace common\helper;
+
 use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -9,13 +10,14 @@ class Helper
 {
     static function prinf($var)
     {
-        echo "<pre>".
-            var_dump($var)
-            ."</pre>";
+        echo "<pre>";
+        var_dump($var);
+            echo "</pre>";
         exit;
     }
 
-    static function tinymce($form,$model,$name){
+    static function tinymce($form, $model, $name)
+    {
         return $form->field($model, $name)->widget(TinyMce::className(), [
             'options' => ['rows' => 6],
             'language' => 'vi',
@@ -29,13 +31,19 @@ class Helper
             ]
         ]);
     }
-    static function update($url){
-        return Html::a("<i class='fa fa-edit'></i>",$url,['class' => 'btn bg-white btn-sm']);
+
+    static function update($url)
+    {
+        return Html::a("<i class='fa fa-edit'></i>", $url, ['class' => 'btn bg-white btn-sm']);
     }
-    static function view($url){
-        return Html::a("<i class='fa fa-eye'></i>",$url,['class' => 'btn bg-white btn-sm']);
+
+    static function view($url)
+    {
+        return Html::a("<i class='fa fa-eye'></i>", $url, ['class' => 'btn bg-white btn-sm']);
     }
-    static function delete($url){
+
+    static function delete($url)
+    {
         return Html::a('<i class="fa fa-trash"></i>'
             , $url, [
                 'class' => 'btn btn-sm bg-white',
@@ -44,9 +52,11 @@ class Helper
                 'data-pjax' => 0
             ]);
     }
-    static function reset($params = null){
+
+    static function reset($params = null)
+    {
         $url = Url::toRoute(\Yii::$app->controller->getRoute());
-        if($params){
+        if ($params) {
             $url = Url::toRoute(array_merge([$url], $params));
         }
         return Html::a('Làm mới', $url, ['class' => 'btn btn-outline-warning']);

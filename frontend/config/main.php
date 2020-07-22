@@ -13,6 +13,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'cookieValidationKey' => '7BWDsalkqhHvlwYNUeQ8j6tQXE78sny0',
+            'enableCsrfValidation' => false,
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -35,14 +36,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
