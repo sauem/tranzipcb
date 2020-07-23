@@ -21,9 +21,11 @@ function initModel(data) {
         _getSizePCB: function(index){
             switch (index) {
                 case 0:
-                    return this.$width;
+                    return pcbModel.$width;
                 case 1:
-                    return this.$heigth;
+                    return pcbModel.$heigth;
+                default:
+                    return 0;
             }
         },
         _clickButton: function (item, event) {
