@@ -15,17 +15,15 @@ function initModel(data) {
 
     let pcbModel = {
         propities: data,
-        $width : ko.observable(0),
-        $heigth : ko.observable(19),
+        $width : ko.observable(50),
+        $heigth : ko.observable(50),
         checkboxClass: ko.observable(null),
         _getSizePCB: function(index){
             switch (index) {
                 case 0:
                     return this.$width;
-                    break;
                 case 1:
                     return this.$heigth;
-                    break;
             }
         },
         _clickButton: function (item, event) {
