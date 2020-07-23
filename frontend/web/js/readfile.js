@@ -31,8 +31,8 @@ function onUpload(element) {
         if(success.success){
             complie(success.data);
             hideLoading();
+            bindData(success.data)
         }
-        console.log(success)
     }
     function errorResponse(error) {
         console.log(error)
@@ -47,5 +47,14 @@ function onUpload(element) {
     }
     function hideLoading() {
         $('.file-card').find(".overlay").css({"display" : "none"})
+    }
+    function bindData(data) {
+        let _h = data.info.pcb_size.cm.h * 10;
+        let _w = data.info.pcb_size.cm.w * 10;
+
+        ko.applyBindings({
+            width : ko.observable(_w),
+            height : ko.observable(_h)
+        })
     }
 }
