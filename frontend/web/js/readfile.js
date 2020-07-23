@@ -11,6 +11,7 @@ function onUpload(element) {
         return;
     }
     _this.parent().find(".mark-input").text(file.name);
+    showLoading();
     $.ajax({
         url  : config.ajaxUpload,
         type : "POST",
@@ -29,6 +30,7 @@ function onUpload(element) {
     function successResponse(success) {
         if(success.success){
             complie(success.data);
+            hideLoading()
         }
         console.log(success)
     }
@@ -39,5 +41,11 @@ function onUpload(element) {
         var source = $("#gerber-view").html();
         var template = Handlebars.compile(source);
         $("#gerberResult").html(template(data));
+    }
+    function showLoading() {
+        $('.file-card').find(".overlay").css({"display" : "flex"})
+    }
+    function hideLoading() {
+        $('.file-card').find(".overlay").css({"display" : "none"})
     }
 }

@@ -161,7 +161,7 @@ select.sm {
     transform: rotate(0deg); }
   to {
     transform: rotate(359deg); } }
-.loadingCharge #overlay {
+.loadingCharge .overlay {
   position: absolute;
   display: none;
   top: 0;

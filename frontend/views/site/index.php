@@ -1,7 +1,12 @@
 <div class="area row mx-5">
     <div class="col-md-8">
-        <div class="card">
+        <div class="card file-card loadingCharge">
             <div class="card-body">
+                <div class="overlay">
+                    <div class="w-100 d-flex justify-content-center align-items-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <?php $form = \yii\widgets\ActiveForm::begin([
@@ -41,7 +46,7 @@
                 <h2 class="card-title">Thông tin đặt hàng</h2>
             </div>
             <div class="card-body">
-                <div id="overlay">
+                <div class="overlay">
                     <div class="w-100 d-flex justify-content-center align-items-center">
                         <div class="spinner"></div>
                     </div>
