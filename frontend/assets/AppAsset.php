@@ -31,7 +31,7 @@ class AppAsset extends AssetBundle
         "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js",
         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js",
         "js/jquery.waypoints.min.js",
-        "js/readfile.js",
+        ["js/readfile.js","async" =>true],
         "js/pcb.handle.js",
         "js/main.js",
     ];
