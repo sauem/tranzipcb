@@ -30,7 +30,7 @@ function onUpload(element) {
     function successResponse(success) {
         if(success.success){
             complie(success.data);
-            hideLoading()
+            hideLoading();
         }
         console.log(success)
     }
