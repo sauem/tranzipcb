@@ -75,9 +75,9 @@
         <h4>Detected {{this.info.count}} layer board of {{toMilimet this.info.pcb_size.cm.h}}x{{toMilimet this.info.pcb_size.cm.w}}mm({{this.info.pcb_size.raw.h}}x{{this.info.pcb_size.raw.w}} inches) .</h4>
     </div>
     <div class="col-md-4 offset-md-1 mb-5 text-center">
-        <img src="/{{this.images.top}}" class="img-fluid">
+        <img src="{{src this.images.top}}" class="img-fluid">
     </div>
     <div class="col-md-4 offset-md-1 mb-5 text-center">
-        <img src="/{{this.images.bottom}}" class="img-fluid">
+        <img src="{{src this.images.bottom}}" class="img-fluid">
     </div>
 </script>
