@@ -15,6 +15,8 @@ function initModel(data) {
 
     let pcbModel = {
         propities: data,
+        width : ko.observable(0),
+        heigth : ko.observable(0),
         checkboxClass: ko.observable(null),
         _clickButton: function (item, event) {
             let _gr = $(event.target).closest(".button-group");
