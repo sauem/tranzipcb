@@ -1,7 +1,6 @@
 <div class="area row mx-5">
     <div class="col-md-8">
         <div class="card">
-
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -10,7 +9,7 @@
                                 'enctype' => 'multipart/form-data\''
                             ]
                         ]) ?>
-                        <div class="file-area my-5">
+                        <div class="file-area mb-5">
                             <?= $form->field($model,'gerberFile')->fileInput(['onchange'=> 'onUpload(this)'])->label(false)?>
                             <p class="mark-input">Chọn file thiết kế</p>
                             <p class="mt-2 text-danger">Định dạng file zip hoặc rar,Max size 10M</p>
@@ -37,18 +36,35 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card">
+        <div class="card loadingCharge">
             <div class="card-header">
                 <h2 class="card-title">Thông tin đặt hàng</h2>
             </div>
             <div class="card-body">
-                <table class="table table-striped">
+                <div id="overlay">
+                    <div class="w-100 d-flex justify-content-center align-items-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <table class="table table-condensed table-striped">
                     <tbody>
                         <tr>
                             <td>Giá bảng mạch:</td>
                             <td>20.000đ</td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Tổng giá</td>
+                            <td>20.000đ</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>Ghi chú:</strong><br>
+                                <p class="text-danger">* Bảng giá chưa bao gồm phí VAT</p>
+                                <p class="text-danger">* Giá cuối cùng có thể thay đổi ngoại lệ</p>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

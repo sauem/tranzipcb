@@ -39,9 +39,13 @@ function initModel(data) {
             $(event.target).parent().find("li.active").removeClass("active");
             $(event.target).addClass("active");
             $(event.target).parent().addClass("hidden");
+
         },
-        _applyColor : function () {
-            alert("adsa")
+        _showLoading : function () {
+            $("#overlay").css({"display" : "flex"})
+        },
+        _hideLoading : function () {
+            $("#overlay").css({"display" : "none"})
         }
     }
 
