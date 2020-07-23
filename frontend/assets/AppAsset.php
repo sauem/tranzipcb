@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
     public $js = [
         "js/modernizr-3.5.0.min.js",
         "js/owl.carousel.min.js",
-        "js/hanldebars-v4.7.6.js",
+        "js/handlebars-v4.7.6.js",
         "js/knockout.js",
         "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js",
         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js",
