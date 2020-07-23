@@ -33,7 +33,7 @@
         <label class="col-md-2" data-bind="text: name"></label>
         <div class="input-group col-md-10">
             <div class="d-flex justify-content-center" data-bind="foreach: items">
-                <input name="h_cm" type="text" data-bind="attr:{placeholder: value}, value: with" class="sm mr-1">
+                <input name="h_cm" type="text" data-bind="attr:{placeholder: value}, value: width" class="sm mr-1">
             </div>
             <select name="size_type" class="sm">
                 <option>mm</option>
