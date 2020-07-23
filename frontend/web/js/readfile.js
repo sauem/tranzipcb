@@ -57,9 +57,7 @@ function onUpload(element) {
         let _h = typeof data.info.pcb_size.cm.h !== "undefined" ? data.info.pcb_size.cm.h * 10 : 0;
         let _w = typeof data.info.pcb_size.cm.w !== "undefined" ? data.info.pcb_size.cm.w * 10 : 0;
 
-        ko.applyBindings({
-            $width: ko.observable(_w),
-            $height: ko.observable(_h)
-        })
+        pcbModel.$width = ko.observable(_w);
+        pcbModel.$heigth = ko.observable(_h);
     }
 }
