@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         "js/modernizr-3.5.0.min.js",
         "js/owl.carousel.min.js",
         "js/handlebars-v4.7.6.js",
-        "js/handlebar-helper.js",
+        "js/handlebar-helper.js?v=1.2",
         "js/knockout.js",
         "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js",
         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js",
