@@ -23,11 +23,9 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="app login-page rtl">
+<body class="app rtl">
 <?php $this->beginBody() ?>
-<main class="app-content">
-    <?= $content?>
-</main>
+<?= $content?>
 <?php $this->endBody() ?>
 </body>
 </html>
