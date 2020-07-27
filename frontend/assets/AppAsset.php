@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js",
         "js/jquery.waypoints.min.js",
         ["js/readfile.js?v=1.4" ,"async" =>true],
-        "js/pcb.handle.js",
+        "js/pcb.handle.js?v=1.2",
         "js/main.js",
     ];
     public $depends = [
