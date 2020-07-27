@@ -44,3 +44,4 @@ phpunit.phar
 /vagrant/
 /docs/
 /env.php
+/frontend/web/gerber/
