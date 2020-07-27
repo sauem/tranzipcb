@@ -36,8 +36,8 @@ class AjaxController extends Controller
                     $name = $model->gerberFile->getBaseName();
                     $report = $gerber->sizereport($board);
                     //change color
-                    $gerber->createPNG($path, 1);
-                    $png = $gerber->imagereport(1);
+                    $gerber->createPNG($path, $name);
+                    $png = $gerber->imagereport($name);
                 }
                 return [
                     'success' => 1,
