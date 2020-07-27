@@ -3,5 +3,9 @@ Handlebars.registerHelper("toMilimet",function (value) {
 });
 
 Handlebars.registerHelper("src",function (link) {
-    return "https://" + window.location.hostname + "/" + link;
+    _protocol = "http://";
+    if (location.protocol == "https:") {
+        _protocol = "https://";
+    }
+    return _protocol + window.location.hostname  + link;
 });

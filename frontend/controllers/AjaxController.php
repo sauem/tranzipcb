@@ -56,7 +56,7 @@ class AjaxController extends Controller
 
     public function actionLoadPropities(){
         $model = Propites::find()->where(['status' => Propites::_ACTIVE])
-            ->orderBy(['created_at' => SORT_ASC])
+            ->orderBy(['sort' => SORT_ASC])
             ->with('items')->asArray()->all();
         return $model;
     }

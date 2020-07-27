@@ -343,7 +343,7 @@ class Gerber
             '--export=png --dpi=254  --border=0 --log="gerbv.log" ' .
             '--output="' . $gerber_dir . 'outline.png"');
         $exe = str_replace('\\', '/', $exe); //make unix friendly paths
-        //echo $exe;
+
         shell_exec($exe);
 
         //load image
@@ -602,7 +602,6 @@ class Gerber
             $this->error[] = 'Unable to open .ZIP archive.';
             return false;
         }
-
         //loop through the files in the .zip
         //only pull out the detected gerber files that we want, less opportunity to run malicious code
         if (!is_array($this->gerber_filename)) {//board error, create default image set
@@ -634,7 +633,6 @@ class Gerber
 
         //base name for all images, exclude extensions like .png
         $image_base_name = $name;
-
         //fully qualified path for gerber files and image files
         $gerber_dir = $this->gerber_path . '/' . $this->extract_path . '/' . $name . '/';
         $image_dir = $this->gerber_path . '/' . $this->image_path . '/';
@@ -648,14 +646,15 @@ class Gerber
 
         }
 
+
         $exe = ($this->gerbv_path . ' ' . $gerber_file_list_str . ' --export=png --dpi=400 --border=1 --output="' . $image_dir . $image_base_name . '_all.png"');
 
         $exe = str_replace('\\', '/', $exe); //not sure this is brilliant... replace any windows style \ with /, works on my XAMPP
 
-        //echo $exe.'<br/>'; //for testing, if you want to see the string executed
 
+       // echo $exe.'<br/>'; //for testing, if you want to see the string executed
         shell_exec($exe);
-
+       // exit;
         //generate an image for each layer, include board outline
         //board outline black, layer red, background white
         $htm = "";

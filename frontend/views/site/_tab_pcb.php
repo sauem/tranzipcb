@@ -7,10 +7,11 @@
                 'color-group' : color_group == 1
                 }">
                 <!-- ko if:input_customize == 0 -->
-                <button class="btn checkbox" data-bind="
+                <button  data-bind="
                     click: $root._clickButton,
                     text: name,
-                    value: value,"></button>
+                    value: value,
+                    class:$root.classButtonCheckbox"></button>
                 <!-- /ko -->
                 <!-- ko if:input_customize == 1 -->
                 <input type="text" class="sm ml-2 w-25">
@@ -33,7 +34,7 @@
         <label class="col-md-2" data-bind="text: name"></label>
         <div class="input-group col-md-10">
             <div class="d-flex justify-content-center" data-bind="foreach: items">
-                <input name="h_cm" type="text" data-bind="attr:{placeholder: value, value: $root._getSizePCB($index())}" class="sm mr-1">
+                <input name="h_cm" type="text" data-bind="attr:{placeholder: value, value: $root._getSize($index()) }" class="sm mr-1">
             </div>
             <select name="size_type" class="sm">
                 <option>mm</option>
@@ -47,8 +48,7 @@
 
 <?php
 $js = <<<JS
-   
-   
+
     $(".color-group").find("button").each(function() {
         let _color  = $(this).attr("value");
         $(this).find("span").css({"background" : _color, "margin-right" : "5px"});
