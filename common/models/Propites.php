@@ -74,6 +74,7 @@ class Propites extends BaseModel
             'description' => 'Description',
             'status' => 'Status',
             'document_link' => 'Document Link',
+            'sort' => 'Vị trí',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

@@ -35,6 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-md-6">
                         <?= $form->field($model, 'color_group')->dropDownList(Propites::COLOR)->label('Group màu sắc') ?>
                     </div>
+                    <div class="col-md-6">
+                        <?= $form->field($model, 'sort')->label('Vị trí') ?>
+                    </div>
                 </div>
                 <?= Helper::tinymce($form, $model, 'description') ?>
                 <?= Helper::tinymce($form, $model, 'alert_comfirm') ?>
@@ -57,6 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'columns' => [
                         'name',
                         'document_link',
+                        'sort',
                         [
                             'label' => 'Số biến thể',
                             'value' => function($model){
