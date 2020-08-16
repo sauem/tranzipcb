@@ -24,18 +24,27 @@ function initModel(data) {
         self.classButtonCheckbox = ko.observable("btn checkbox");
         self.board = ko.observable(0);
         self.total = ko.observable(0)
+        self.colorBox = ko.observable()
 
+        self.colorBox("<span></span>");
 
         self._clickButton = function (item, event) {
             let _gr = $(event.target).closest(".button-group");
+            let _pKey = $(event.target).attr("pkey");
             _gr.find("button.active").removeClass("active");
             $(event.target).addClass("active");
-            self._onClickItem(item)
+            self._onClickItem(item, _pKey)
         };
-        self._onClickItem = function (item) {
+        self._onClickItem = function (item, pkey) {
             let _key = item.id;
             let _val = __getInfo(_key);
+            if (pkey === PKEY.layer) {
+                window.FILE.layer_count = item.value;
+                __reloadCard(item.id);
+            } else {
 
+                __changeQuantity(_val, pkey);
+            }
         };
         self.setPlayer = function (num) {
             self.players(num);
@@ -52,15 +61,28 @@ function initModel(data) {
         self.setTotal = function (total) {
             self.total(total);
         };
+        self.checkGroup = function (pkey) {
+            if (pkey === PKEY.color) {
+                return "button-group color-group";
+            } else {
+                return "button-group";
+            }
+        };
+        self.checkBackground = function (pkey , name , color) {
+            if(pkey === PKEY.color){
+                return "<span style='background: "+color+"'></span> "+name ;
+            }
+            return  name;
+        };
         self._setActive = function (index, parent, pkey = "") {
 
-            if (pkey === "layer") {
+            if (pkey === PKEY.layer) {
                 if (index === 1) {
                     return "btn checkbox active";
                 }
                 return "btn checkbox";
-            } else if (parent !== "layer") {
-                if (pkey === "thinkness") {
+            } else if (parent !== PKEY.layer) {
+                if (pkey === PKEY.thinkness) {
                     if (index === 5) {
                         return "btn checkbox active";
                     }
@@ -100,10 +122,16 @@ function initModel(data) {
             let _key = item.id;
             let _percent = __getInfo(_key);
             __changeQuantity(_percent);
-
-
         };
+        self.changeInput = function (item, event) {
+            let _pKey = $(event.target).attr("pkey");
+            if (_pKey === PKEY.demension) {
 
+            }
+            if (_pKey === PKEY.different_design) {
+
+            }
+        };
         self._showLoading = function () {
             $("#overlay").css({"display": "flex"})
         };

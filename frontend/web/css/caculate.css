@@ -67,10 +67,10 @@ select.sm {
   justify-content: space-between;
   align-items: center; }
   .button-group.color-group button span {
+    margin-right: 5px;
     width: 10px;
     height: 10px;
-    border-radius: 100%;
-    background: red; }
+    border-radius: 100%; }
 .button-group .btn.checkbox {
   padding: 5px 25px;
   position: relative;

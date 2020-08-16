@@ -55,17 +55,19 @@ class AjaxController extends Controller
         ];
     }
 
-    public function actionLoadPropities(){
+    public function actionLoadPropities()
+    {
         $model = Propites::find()->where(['status' => Propites::_ACTIVE])
             ->orderBy(['sort' => SORT_ASC])
             ->with('items')->asArray()->all();
         return $model;
     }
 
-    public function actionGetPropity(){
+    public function actionGetPropity()
+    {
         $id = \Yii::$app->request->post('propity');
-        $model =  PropitesItems::findOne($id);
-        if($model){
+        $model = PropitesItems::findOne($id);
+        if ($model) {
             return [
                 'success' => 1,
                 'value' => $model->percent
@@ -74,6 +76,27 @@ class AjaxController extends Controller
         return [
             'success' => 1,
             'msg' => Helper::firstError($model)
+        ];
+    }
+
+    public function actionDefaultPropity()
+    {
+        $key = \Yii::$app->request->post('pKey');
+        $position = \Yii::$app->request->post('position');
+        $board = \Yii::$app->request->post('board');
+        if (!$position) {
+            $position = 0;
+        }
+        $model = Propites::findOne(['pKey' => $key]);
+        if ($model) {
+            return [
+                'success' => 1,
+                'value' => round($model->items[$position]->percent/100 * $board,2)
+            ];
+        }
+        return [
+            'success' => 0,
+            'value' => Helper::firstError($model)
         ];
     }
 }

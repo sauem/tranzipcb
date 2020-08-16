@@ -1,3 +1,23 @@
+const PKEY = {
+    layer: "layer",
+    demension: "demension",
+    qty: "qty",
+    different_design: "different_design",
+    delivery_format: "delivery_format",
+    thinkness: "thinkness",
+    color: "color",
+    surface_finish: "surface_finish",
+    copper_weight: "copper_weight",
+    gold_fingers: "gold_fingers",
+    material_type: "material_type",
+    flying_probe_test: "flying_probe_test",
+    castellated_holes: "castellated_holes",
+    remove_order_number: "remove_order_number",
+    finger_chamfered: "finger_chamfered",
+    edges: "edges",
+    total: "total",
+    board: "board"
+}
 window.FILE = {
     width: 0,
     height: 0,
@@ -98,24 +118,27 @@ function onUpload(element) {
         window.pcbModel.setWidth(_w);
 
         //caculate
-        let _propity_id = 7;
+        let id = 7;
         switch (FILE.layer_count) {
-            case 1:
-                _propity_id = 6;
+            case "1":
+                id = 6;
                 break;
-            case 3:
-                _propity_id = 8;
+            case "3":
+                id = 8;
                 break;
-            case 4:
-                _propity_id = 9;
+            case "4":
+                id = 9;
                 break;
-        }
 
-        FILE.price.layer = __getInfo(_propity_id);
-        FILE.price.board =   _w/100 * _h/100  * FILE.price.layer
-        __setTotal();
-        __printBoard();
-        __printTotal();
+        }
+        __setBoard(id);
+        __loadDefaultValue(FILE.price.board)
+            .then(__setTotal)
+            .then(__printBoard)
+            .then(__printTotal)
+            .catch(e => {
+                console.log(e.message)
+            });
 
     }
 }
