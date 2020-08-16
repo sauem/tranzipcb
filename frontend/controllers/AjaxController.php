@@ -7,6 +7,7 @@ namespace frontend\controllers;
 use common\helper\Gerber;
 use common\helper\Helper;
 use common\models\Propites;
+use common\models\PropitesItems;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\web\UploadedFile;
@@ -59,5 +60,20 @@ class AjaxController extends Controller
             ->orderBy(['sort' => SORT_ASC])
             ->with('items')->asArray()->all();
         return $model;
+    }
+
+    public function actionGetPropity(){
+        $id = \Yii::$app->request->post('propity');
+        $model =  PropitesItems::findOne($id);
+        if($model){
+            return [
+                'success' => 1,
+                'value' => $model->percent
+            ];
+        }
+        return [
+            'success' => 1,
+            'msg' => Helper::firstError($model)
+        ];
     }
 }

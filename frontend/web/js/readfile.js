@@ -1,3 +1,36 @@
+window.FILE = {
+    width: 0,
+    height: 0,
+    layer_count: 0,
+    price: {
+        layer: 0,
+        demension: 0,
+        qty: 0,
+        different_design: 0,
+        delivery_format: 0,
+        thinkness: 0,
+        color: 0,
+        surface_finish: 0,
+        copper_weight: 0,
+        gold_fingers: 0,
+        material_type: 0,
+        flying_probe_test: 0,
+        castellated_holes: 0,
+        remove_order_number: 0,
+        finger_chamfered: 0,
+        edges: 0,
+        total: 0,
+        board: 0
+    }
+
+
+};
+
+Number.prototype.formatMoney = function (n, x) {
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+    return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
+};
+
 function onUpload(element) {
     let _this = $(element);
     let file = _this[0].files[0];
@@ -58,9 +91,31 @@ function onUpload(element) {
         let _w = typeof data.info.pcb_size.cm.w !== "undefined" ? data.info.pcb_size.cm.w * 10 : 0;
 
 
-
+        FILE.width = _w;
+        FILE.height = _h;
+        FILE.layer_count = 2;
         window.pcbModel.setHeight(_h);
         window.pcbModel.setWidth(_w);
-        window.pcbModel._setActiveButton(2);
+
+        //caculate
+        let _propity_id = 7;
+        switch (FILE.layer_count) {
+            case 1:
+                _propity_id = 6;
+                break;
+            case 3:
+                _propity_id = 8;
+                break;
+            case 4:
+                _propity_id = 9;
+                break;
+        }
+
+        FILE.price.layer = __getInfo(_propity_id);
+        FILE.price.board =   _w/100 * _h/100  * FILE.price.layer
+        __setTotal();
+        __printBoard();
+        __printTotal();
+
     }
 }

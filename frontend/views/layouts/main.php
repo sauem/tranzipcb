@@ -28,7 +28,8 @@ AppAsset::register($this);
             ajaxUpload : "<?= Url::toRoute(['ajax/ajax-file'])?>",
             ajaxLoadPropites : "<?= Url::toRoute(['ajax/load-propities'])?>",
             maxSize : 10485760,
-            type : ['application/zip','application/x-rar','application/x-zip-compressed']
+            type : ['application/zip','application/x-rar','application/x-zip-compressed'],
+            ajaxPropity  : "<?= Url::toRoute(['ajax/get-propity'])?>"
         }
     </script>
 </head>

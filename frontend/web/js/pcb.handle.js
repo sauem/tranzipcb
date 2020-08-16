@@ -20,8 +20,11 @@ function initModel(data) {
         self.propities = data;
         self.width = ko.observable(100);
         self.heigth = ko.observable(100);
-        self.players  = ko.observable();
+        self.players = ko.observable();
         self.classButtonCheckbox = ko.observable("btn checkbox");
+        self.board = ko.observable(0);
+        self.total = ko.observable(0)
+
 
         self._clickButton = function (item, event) {
             let _gr = $(event.target).closest(".button-group");
@@ -29,11 +32,12 @@ function initModel(data) {
             $(event.target).addClass("active");
             self._onClickItem(item)
         };
-
         self._onClickItem = function (item) {
+            let _key = item.id;
+            let _val = __getInfo(_key);
 
         };
-        self.setPlayer = function(num){
+        self.setPlayer = function (num) {
             self.players(num);
         };
         self.setHeight = function (h) {
@@ -42,8 +46,37 @@ function initModel(data) {
         self.setWidth = function (w) {
             self.width(w);
         };
-        self._getSize = function(index){
-            if(index == 1){
+        self.setBoard = function (board) {
+            self.board(board);
+        };
+        self.setTotal = function (total) {
+            self.total(total);
+        };
+        self._setActive = function (index, parent, pkey = "") {
+
+            if (pkey === "layer") {
+                if (index === 1) {
+                    return "btn checkbox active";
+                }
+                return "btn checkbox";
+            } else if (parent !== "layer") {
+                if (pkey === "thinkness") {
+                    if (index === 5) {
+                        return "btn checkbox active";
+                    }
+                    return "btn checkbox";
+                } else if (index === 0) {
+                    return "btn checkbox active";
+                } else {
+                    return "btn checkbox";
+                }
+            }
+
+
+        }
+
+        self._getSize = function (index) {
+            if (index === 1) {
                 return self.width;
             }
             return self.heigth;
@@ -64,12 +97,13 @@ function initModel(data) {
             $(event.target).addClass("active");
             $(event.target).parent().addClass("hidden");
 
+            let _key = item.id;
+            let _percent = __getInfo(_key);
+            __changeQuantity(_percent);
+
+
         };
-        self._setActiveButton = function(val){
-            if(val == 2){
-                self.classButtonCheckbox("btn checkbox active");
-            }
-        };
+
         self._showLoading = function () {
             $("#overlay").css({"display": "flex"})
         };

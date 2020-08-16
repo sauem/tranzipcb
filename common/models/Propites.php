@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $pKey
  * @property string|null $description
  * @property string|null $status
  * @property string|null $document_link
@@ -54,12 +55,13 @@ class Propites extends BaseModel
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name','pKey'], 'required'],
             [['document_link'], 'string'],
             [['created_at', 'updated_at', 'sort', 'color_group'], 'integer'],
-            [['name', 'description', 'type'], 'string', 'max' => 255],
+            [['name', 'description', 'type', 'pKey'], 'string', 'max' => 255],
             [['status'], 'string', 'max' => 25],
             [['alert_comfirm'], 'string'],
+            [['pKey'], 'unique']
         ];
     }
 
@@ -75,6 +77,7 @@ class Propites extends BaseModel
             'status' => 'Status',
             'document_link' => 'Document Link',
             'sort' => 'Vị trí',
+            'pKey' => 'Định danh công thức',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
@@ -83,5 +86,11 @@ class Propites extends BaseModel
     public function getItems()
     {
         return $this->hasMany(PropitesItems::className(), ['parent' => 'id']);
+    }
+
+    public static function allList()
+    {
+        $list = Propites::find()->with('items')->all();
+        return $list;
     }
 }

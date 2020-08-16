@@ -55,13 +55,13 @@
                     <tbody>
                         <tr>
                             <td>Giá bảng mạch:</td>
-                            <td>20.000đ</td>
+                            <td><span data-bind="text: $root.board"></span>đ</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td>Tổng giá</td>
-                            <td>20.000đ</td>
+                            <td><span data-bind="text: $root.total"></span>đ</td>
                         </tr>
                         <tr>
                             <td colspan="2"><strong>Ghi chú:</strong><br>
@@ -76,8 +76,8 @@
     </div>
 </div>
 <script id="gerber-view" type="text/x-handlebars-template">
-    <div class="col-12">
-        <h4>Detected {{this.info.count}} layer board of {{toMilimet this.info.pcb_size.cm.h}}x{{toMilimet this.info.pcb_size.cm.w}}mm({{this.info.pcb_size.raw.h}}x{{this.info.pcb_size.raw.w}} inches) .</h4>
+    <div class="col-12 text-center">
+        <h4> Phát hiện {{this.info.count}} lớp mạch {{toMilimet this.info.pcb_size.cm.h}}x{{toMilimet this.info.pcb_size.cm.w}}mm({{this.info.pcb_size.raw.h}}x{{this.info.pcb_size.raw.w}} inches) .</h4>
     </div>
     <div class="col-md-4 offset-md-1 mb-5 text-center">
         <img src="{{src this.images.top}}" class="img-fluid">

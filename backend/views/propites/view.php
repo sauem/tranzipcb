@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-7">
         <?php $form = ActiveForm::begin() ?>
         <div class="tile">
             <div class="tile-title">
@@ -36,8 +36,35 @@ $this->params['breadcrumbs'][] = $this->title;
                             ->dropDownList(PropitesItems::INPUT_CUSTOM)
                             ->label('Ô nhập tùy chỉnh') ?>
                     </div>
+
+                    <div class="col-md-12">
+                       <label>
+                           <input type="checkbox" class="logic" data-toggle="switchbutton" data-size="xs" data-style="ios">
+                           Đặt logic hiển thị
+                       </label>
+                    </div>
+                    <div class="col-12" style="display: none" id="expand">
+                        <div class="row item">
+                            <div class="col-md-4">
+                                <select class="form-control" name="related">
+                                    <option>Chọn thuộc tính</option>
+                                    <?= Helper::optionSelect()?>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="rule">
+                                    <option value="any">Có bất kì giá trị</option>
+                                    <option value="include">Bao gồm</option>
+                                    <option value="exclude">Ngoại trừ</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 text-right">
+                               <input class="form-control" name="match" placeholder="trùng với giá trị" >
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-right">
+                <div class="text-right mt-5">
                     <?= Helper::reset(['id' => Yii::$app->request->get('id')]) ?>
                     <?= Html::submitButton("Lưu", ['class' => ' btn btn-success']) ?>
                 </div>
@@ -45,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <?php ActiveForm::end() ?>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-5">
         <div class="tile">
             <div class="tile-title">
                 Danh sách biến thể
@@ -58,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         [
                             'attribute' => 'percent',
                             'value' => function ($model) {
-                                return $model->percent . "%";
+                                return $model->percent > 100 ? $model->percent . "đ" : $model->percent . "%";
                             }
                         ],
                         [
@@ -87,3 +114,17 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+<?php
+$js =<<<JS
+    $(".logic").change(function() {
+        if($(this).is(":checked")){
+            $("#expand").show();
+        }else{
+            $("#expand").hide();    
+        }
+    });
+    $(".btnOr").click(function() {
+        alert("adsa")
+    });
+JS;
+$this->registerJs($js);

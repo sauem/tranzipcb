@@ -68,6 +68,7 @@ class PropitesController extends BaseController
                 'pageSize' => 20
             ]
         ]);
+
         return $this->render('view', [
             'model' => $model,
             'dataProvider' => $dataProvider,

@@ -2,6 +2,7 @@
 
 namespace common\helper;
 
+use common\models\Propites;
 use dosamigos\tinymce\TinyMce;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -60,5 +61,23 @@ class Helper
             $url = Url::toRoute(array_merge([$url], $params));
         }
         return Html::a('Làm mới', $url, ['class' => 'btn btn-outline-warning']);
+    }
+
+    static function optionSelect () {
+        $lists = Propites::allList();
+            $htm = "";
+        foreach ($lists as  $list){
+            $htm .= "<option>{$list->name}</option>";
+        }
+        return $htm;
+    }
+
+    static function firstError($model)
+    {
+        $modelErrs = $model->getFirstErrors();
+        foreach ($modelErrs as $err) {
+            return $err;
+        }
+        return "No error founded";
     }
 }

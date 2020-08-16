@@ -11,7 +11,7 @@
                     click: $root._clickButton,
                     text: name,
                     value: value,
-                    class:$root.classButtonCheckbox"></button>
+                    class:$root._setActive( $index(),$parentContext.$index(), $parent.pKey), $root.classButtonCheckbox"></button>
                 <!-- /ko -->
                 <!-- ko if:input_customize == 1 -->
                 <input type="text" class="sm ml-2 w-25">
@@ -38,7 +38,6 @@
             </div>
             <select name="size_type" class="sm">
                 <option>mm</option>
-                <option>inch</option>
             </select>
         </div>
         <!-- /ko -->
