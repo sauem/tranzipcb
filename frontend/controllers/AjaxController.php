@@ -89,9 +89,10 @@ class AjaxController extends Controller
         }
         $model = Propites::findOne(['pKey' => $key]);
         if ($model) {
+            $value = isset($model->items[$position]) ? $model->items[$position]->percent : 0;
             return [
                 'success' => 1,
-                'value' => round($model->items[$position]->percent/100 * $board,2)
+                'value' => round($value /100 * $board,2)
             ];
         }
         return [
