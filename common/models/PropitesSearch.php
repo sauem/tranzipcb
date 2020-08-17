@@ -40,7 +40,7 @@ class PropitesSearch extends Propites
      */
     public function search($params)
     {
-        $query = Propites::find();
+        $query = Propites::find()->orderBy(['sort' => SORT_ASC]);
 
         // add conditions that should always apply here
 
