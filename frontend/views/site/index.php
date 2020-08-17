@@ -41,24 +41,25 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card loadingCharge">
-            <div class="card-header">
-                <h2 class="card-title">Thông tin đặt hàng</h2>
-            </div>
-            <div class="card-body">
-                <div class="overlay">
-                    <div class="w-100 d-flex justify-content-center align-items-center">
-                        <div class="spinner"></div>
-                    </div>
+        <div id="sidebar">
+            <div class="card loadingCharge">
+                <div class="card-header">
+                    <h2 class="card-title">Thông tin đặt hàng</h2>
                 </div>
-                <table class="table table-condensed table-striped">
-                    <tbody>
+                <div class="card-body">
+                    <div class="overlay">
+                        <div class="w-100 d-flex justify-content-center align-items-center">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                    <table class="table table-condensed table-striped">
+                        <tbody>
                         <tr>
                             <td>Giá bảng mạch:</td>
                             <td><span data-bind="text: $root.board"></span>đ</td>
                         </tr>
-                    </tbody>
-                    <tfoot>
+                        </tbody>
+                        <tfoot>
                         <tr>
                             <td>Tổng giá</td>
                             <td><span data-bind="text: $root.total"></span>đ</td>
@@ -69,8 +70,9 @@
                                 <p class="text-danger">* Giá cuối cùng có thể thay đổi ngoại lệ</p>
                             </td>
                         </tr>
-                    </tfoot>
-                </table>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
