@@ -37,10 +37,9 @@
         <label class="col-md-2" data-bind="text: name"></label>
         <div class="input-group col-md-10">
             <div class="d-flex justify-content-center" data-bind="foreach: items">
-                <input
-                        name="h_cm" type="text"
+                <input type="text"
                         data-bind="attr:{
-                        placeholder: value,
+                        name: $index() == 1 ? 'width' : 'height',
                         pkey: $parent.pKey,
                         value: $root._getSize($index()) },
                         event: {change: $root.changeInput}"

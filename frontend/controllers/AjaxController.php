@@ -92,12 +92,28 @@ class AjaxController extends Controller
             $value = isset($model->items[$position]) ? $model->items[$position]->percent : 0;
             return [
                 'success' => 1,
-                'value' => round($value /100 * $board,2)
+                'value' => round($value / 100 * $board, 2)
             ];
         }
         return [
             'success' => 0,
             'value' => Helper::firstError($model)
+        ];
+    }
+
+    public function actionGetPropityByKey()
+    {
+        $key = \Yii::$app->request->post("propity");
+        $model = Propites::find()->with('items')->where(['pKey' => $key])->asArray()->one();
+        if ($model) {
+            return [
+                'success' => 1,
+                'value' => $model
+            ];
+        }
+        return [
+            'success' => 0,
+            'msg' => 'Không tìm thấy thuộc tính!'
         ];
     }
 }

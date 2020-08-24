@@ -43,6 +43,28 @@ class Propites extends BaseModel
         self::_ISNOT_COLOR => 'No',
         self::_IS_COLOR => 'Yes',
     ];
+    const KEYS = [
+        "layer" => "layer",
+        "dimension" => "dimension",
+        "qty" => "qty",
+        "different_design" => "different_design",
+        "delivery_format" => "delivery_format",
+        "thinkness" => "thinkness",
+        "color" => "color",
+        "surface_finish" => "surface_finish",
+        "copper_weight" => "copper_weight",
+        "gold_fingers" => "gold_fingers",
+        "material_type" => "material_type",
+        "flying_probe_test" => "flying_probe_test",
+        "castellated_holes" => "castellated_holes",
+        "remove_order_number" => "remove_order_number",
+        "finger_chamfered" => "finger_chamfered",
+        "edges" => "edges",
+        "total" => "total",
+        "board" => "board",
+        "acreage" => "acreage",
+        "custom_design" => "Custom value Design"
+    ];
 
     public static function tableName()
     {
@@ -55,7 +77,7 @@ class Propites extends BaseModel
     public function rules()
     {
         return [
-            [['name','pKey'], 'required'],
+            [['name', 'pKey'], 'required'],
             [['document_link'], 'string'],
             [['created_at', 'updated_at', 'sort', 'color_group'], 'integer'],
             [['name', 'description', 'type', 'pKey'], 'string', 'max' => 255],

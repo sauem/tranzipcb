@@ -8,7 +8,8 @@
 
 input.sm {
   height: 26px;
-  border: solid 1px #ccc; }
+  border: solid 1px #ccc;
+  text-align: center; }
 
 select.sm {
   height: 26px; }

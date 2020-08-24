@@ -1,6 +1,7 @@
 const PKEY = {
     layer: "layer",
     demension: "demension",
+    extend_demension: "extend_demension",
     qty: "qty",
     different_design: "different_design",
     delivery_format: "delivery_format",
@@ -14,17 +15,21 @@ const PKEY = {
     castellated_holes: "castellated_holes",
     remove_order_number: "remove_order_number",
     finger_chamfered: "finger_chamfered",
+    acreage: "acreage",
+    custom_design: "custom_design",
     edges: "edges",
     total: "total",
     board: "board"
 }
 window.FILE = {
+    propities: [],
     width: 0,
     height: 0,
     layer_count: 0,
     price: {
         layer: 0,
         demension: 0,
+        extend_demension: 0,
         qty: 0,
         different_design: 0,
         delivery_format: 0,
@@ -114,8 +119,9 @@ function onUpload(element) {
         FILE.width = _w;
         FILE.height = _h;
         FILE.layer_count = 2;
-        window.pcbModel.setHeight(_h);
-        window.pcbModel.setWidth(_w);
+        window.pcbModel.setWidth(FILE.width);
+        window.pcbModel.setHeight(FILE.height);
+
 
         //caculate
         let id = 7;
@@ -139,6 +145,5 @@ function onUpload(element) {
             .catch(e => {
                 console.log(e.message)
             });
-
     }
 }

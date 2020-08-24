@@ -39,7 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= $form->field($model, 'sort')->label('Vị trí') ?>
                     </div>
                     <div class="col-md-4">
-                        <?= $form->field($model, 'pKey')->label('Định danh công thức') ?>
+                        <?= $form->field($model, 'pKey')
+                            ->dropDownList([
+                                 'Keys' =>  Propites::KEYS
+                            ])->label('Định danh công thức') ?>
                     </div>
                     <div class="col-12">
                         <?= Helper::tinymce($form, $model, 'description') ?>

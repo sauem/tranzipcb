@@ -1,12 +1,15 @@
 loadPropites();
 
 function loadPropites() {
+    $('.file-card').find(".overlay").css({"display": "flex"})
     $.ajax({
         url: config.ajaxLoadPropites,
         type: "GET",
         data: {},
         success: function (res) {
-            initModel(res)
+            initModel(res);
+            FILE.propities = res;
+            $('.file-card').find(".overlay").css({"display": "none"});
         }
     })
 }
@@ -68,11 +71,11 @@ function initModel(data) {
                 return "button-group";
             }
         };
-        self.checkBackground = function (pkey , name , color) {
-            if(pkey === PKEY.color){
-                return "<span style='background: "+color+"'></span> "+name ;
+        self.checkBackground = function (pkey, name, color) {
+            if (pkey === PKEY.color) {
+                return "<span style='background: " + color + "'></span> " + name;
             }
-            return  name;
+            return name;
         };
         self._setActive = function (index, parent, pkey = "") {
 
@@ -96,7 +99,15 @@ function initModel(data) {
 
 
         }
-
+        self._reloadActive = function (pkey, index) {
+            $("button[pkey='different_design']").each(function () {
+                if ($(this).attr("value") == index) {
+                    $(this).addClass("active");
+                } else {
+                    $(this).removeClass("active");
+                }
+            });
+        };
         self._getSize = function (index) {
             if (index === 1) {
                 return self.width;
@@ -121,15 +132,25 @@ function initModel(data) {
 
             let _key = item.id;
             let _percent = __getInfo(_key);
-            __changeQuantity(_percent);
+            __changeQuantity(_percent, PKEY.qty);
         };
         self.changeInput = function (item, event) {
             let _pKey = $(event.target).attr("pkey");
+            let _name = $(event.target).attr("name");
+            let _val = $(event.target).val();
             if (_pKey === PKEY.demension) {
-
+                switch (_name) {
+                    case "width":
+                        FILE.width = parseInt(_val);
+                        break;
+                    case "height":
+                        FILE.height = parseInt(_val);
+                        break;
+                }
+                __changeDemension();
             }
             if (_pKey === PKEY.different_design) {
-
+                __changeDesign(_val);
             }
         };
         self._showLoading = function () {

@@ -30,7 +30,8 @@ AppAsset::register($this);
             maxSize : 10485760,
             type : ['application/zip','application/x-rar','application/x-zip-compressed'],
             ajaxPropity  : "<?= Url::toRoute(['ajax/get-propity'])?>",
-            ajaxDefault  : "<?= Url::toRoute(['ajax/default-propity'])?>"
+            ajaxDefault  : "<?= Url::toRoute(['ajax/default-propity'])?>",
+            ajaxGetPropityByKey  : "<?= Url::toRoute(['ajax/get-propity-by-key'])?>"
         }
     </script>
 </head>
